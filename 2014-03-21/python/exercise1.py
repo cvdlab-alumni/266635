@@ -13,8 +13,8 @@ from pyplasm import *
 def circle(r):
     def circle0(p):
 		alpha = p[0]
-        return [r*COS(alpha), r*SIN(alpha)]
-    return circle0
+		return [r*COS(alpha), r*SIN(alpha)]
+	return circle0
 
 # Vars:
 
@@ -120,7 +120,7 @@ wall_1 = STRUCT([T([1,2])([11.5,4.5])(wall_1)])
 coord_wall_2 = [[0,0],[0.3,0],[0,30.8],[0.3,30.8]]
 wall_2 = MKPOL([coord_wall_2, cells, pols])
 wall_2 = STRUCT([COLOR(YELLOW)(wall_2)])
-wall_2 = STRUCT([T([1,2])([4,4.5])(wall_2)]) # forse qui
+wall_2 = STRUCT([T([1,2])([4,4.5])(wall_2)])
 
 # Interno3
 
@@ -152,12 +152,3 @@ floor5 = STRUCT([wall_1,wall_2,wall_3,wall_4,wall_5])
 building = STRUCT([floor0,floor1,floor2,floor3,floor4,floor5])
 
 # Visualizzo il tutto:
-
-VIEW(building)
-
-
-
-
-
-
-
