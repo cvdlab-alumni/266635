@@ -212,7 +212,7 @@ tetto_finale = STRUCT([tetto,tetto_allungato_traslato])
 solid_model_3D = STRUCT([base_column_building,muri_interni,tetto_finale])
 
 VIEW(SKELETON(1)(solid_model_3D))
-VIEW(solid_model_3D)
+VIEW(COLOR([251,206/200,177/160])(solid_model_3D))
 
 
 
