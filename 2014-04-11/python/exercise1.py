@@ -345,4 +345,4 @@ building = STRUCT([horizontal_partition_base,horizontal_partition_middle,horizon
 
 VIEW(COLOR(color)(building))
 
-#-------------------------- That's All Folks! -----------------------------------------
+#-------------------------- That's All ! -----------------------------------------
