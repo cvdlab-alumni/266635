@@ -71,7 +71,7 @@ def Gable(radius,h,n):
 
 # Function color:
 def myColor(r,g,b):
-  return Color4f(r/255.0,g/255.0,b/255.0,1)
+  return Color4f(r/255.0,g/255.0,b/255.0,0.05)
 
 # Function for make columns (re-definded from mapper.py)
 def larRod(params):
@@ -111,6 +111,10 @@ colorRuins = myColor(193,130,19)
 colorExternal = myColor(127,70,14)
 colorHedges = myColor(99,179,29)
 colorBench = myColor(112,134,125)
+colorBaseLamp = myColor(67,67,67)
+colorEndLamp = myColor(245,253,191)
+colorTrash = myColor(210,210,210)
+colorStreet = myColor(148,96,67)
 
 #-------------------- Horizontal Partition Base ----------------------------------
 
@@ -298,7 +302,7 @@ internal_columns_row_1 = [T(1)(5.3),column]
 
 internal_columns_row_1 = STRUCT(NN(2)(internal_columns_row_1))
 
-internal_columns_1 = STRUCT([T([2,3])([35,1.5]),internal_columns_row_1])
+internal_columns_1 = STRUCT([T([2,3])([39,1.5]),internal_columns_row_1])
 
 internal_columns_1 = STRUCT([T(1)(5),internal_columns_1])
 
@@ -516,13 +520,69 @@ bench = (T([1,3])([12,0.1])(bench))
 
 bench = STRUCT([COLOR(colorBench)(bench)])
 
+# Lamps:
+
+# Base lamp:
+
+base_lamp = larRod([0.2,5])([32,1])
+
+model_base_lamp = STRUCT(MKPOLS(base_lamp))
+
+model_base_lamp = COLOR(colorBaseLamp)(model_base_lamp)
+
+end_lamp = larBall(0.5)([18,36])
+
+# End lamp (ligth):
+
+model_end_lamp = STRUCT(MKPOLS(end_lamp))
+
+model_end_lamp = (T(3)(4.7)(model_end_lamp))
+
+model_end_lamp = COLOR(colorEndLamp)(model_end_lamp)
+
+# Lamp 1:
+
+lamp_1 = STRUCT([model_base_lamp,model_end_lamp])
+
+lamp_1 = (T([1,2])([5,1])(lamp_1))
+
+# Lamp 2:
+
+lamp_2 = STRUCT([model_base_lamp,model_end_lamp])
+
+lamp_2 = (T([1,2])([22.3,1])(lamp_2))
+
+# Lamps:
+
+lamps = STRUCT([lamp_1,lamp_2])
+
+# Trash:
+
+trash = checkModel(larCylinder([.5,1.5])([32,1]))
+
+model_trash = STRUCT(MKPOLS(trash))
+
+model_trash = COLOR(colorTrash)(model_trash)
+
+final_trash = STRUCT([model_trash])
+
+final_trash = (T([1,2])([16,1])(final_trash))
+
+# Street :
+
+street = CUBOID([1,49.44,0.05])
+
+street = (T([1,3])([24,0.2])(street))
+
+street = STRUCT([COLOR(colorStreet)(street)])
+
 # External_Ruins:
 
 external_ruins = STRUCT([ruin1])
 
 external_ruins = STRUCT([COLOR(colorRuins)(external_ruins)])
 
-urban_fittings = STRUCT([external_base,hedges,external_ruins,bench])
+urban_fittings = STRUCT([external_base,hedges,external_ruins,bench,lamps,final_trash,street])
 
 #-------------------------- All in One -----------------------------------------
 

@@ -71,7 +71,7 @@ def Gable(radius,h,n):
 
 # Function color:
 def myColor(r,g,b):
-	return Color4f(r/255.0,g/255.0,b/255.0,1)
+	return Color4f(r/255.0,g/255.0,b/255.0,0.05)
 
 # Function for make columns (re-definded from mapper.py)
 def larRod(params):
@@ -289,7 +289,7 @@ internal_columns_row_1 = [T(1)(5.3),column]
 
 internal_columns_row_1 = STRUCT(NN(2)(internal_columns_row_1))
 
-internal_columns_1 = STRUCT([T([2,3])([35,1.5]),internal_columns_row_1])
+internal_columns_1 = STRUCT([T([2,3])([39,1.5]),internal_columns_row_1])
 
 internal_columns_1 = STRUCT([T(1)(5),internal_columns_1])
 
