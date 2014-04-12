@@ -518,6 +518,8 @@ bench = (S([1,2,3])([0.5,0.5,0.5])(bench))
 
 bench = (T([1,3])([12,0.1])(bench))
 
+bench = (T(2)([47.44])(bench))
+
 bench = STRUCT([COLOR(colorBench)(bench)])
 
 # Lamps:
@@ -544,13 +546,13 @@ model_end_lamp = COLOR(colorEndLamp)(model_end_lamp)
 
 lamp_1 = STRUCT([model_base_lamp,model_end_lamp])
 
-lamp_1 = (T([1,2])([5,1])(lamp_1))
+lamp_1 = (T([1,2])([5,48.44])(lamp_1))
 
 # Lamp 2:
 
 lamp_2 = STRUCT([model_base_lamp,model_end_lamp])
 
-lamp_2 = (T([1,2])([22.3,1])(lamp_2))
+lamp_2 = (T([1,2])([22.3,48.44])(lamp_2))
 
 # Lamps:
 
@@ -566,7 +568,7 @@ model_trash = COLOR(colorTrash)(model_trash)
 
 final_trash = STRUCT([model_trash])
 
-final_trash = (T([1,2])([16,1])(final_trash))
+final_trash = (T([1,2])([16,47.44])(final_trash))
 
 # Street :
 
