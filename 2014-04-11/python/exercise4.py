@@ -588,7 +588,7 @@ urban_fittings = STRUCT([external_base,hedges,external_ruins,bench,lamps,final_t
 
 building = STRUCT([COLOR(color)(building)])
 
-final_building = STRUCT([building,external_ruins,urban_fittings])
+final_building = STRUCT([building,urban_fittings])
 
 VIEW(final_building)
 
