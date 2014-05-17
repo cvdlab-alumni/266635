@@ -1,4 +1,4 @@
-#  Temle of Concordia, Andrea D'Angelo, 266635, exercise3
+#  Temple of Concordia, Andrea D'Angelo, 266635, exercise3
 
 # imports:
 
