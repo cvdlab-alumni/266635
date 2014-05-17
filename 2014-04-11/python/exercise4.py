@@ -77,7 +77,7 @@ def myColor(r,g,b):
 def larRod(params):
    radius,height= params
    def larRod0(shape=[36,1]):
-      V,CV = checkModel(larCylinder(params)(shape))
+      V,CV = larCylinder(params)(shape)
       return V,[range(len(V))]
    return larRod0
 
