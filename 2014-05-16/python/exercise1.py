@@ -14,7 +14,7 @@ DRAW = COMP([VIEW,STRUCT,MKPOLS])
 # Apartment:
 
 apartment = assemblyDiagramInit([11,11,3])([[.3,3.5,.1,3.3,.1,2.3,.1,1.3,.3,1.8,.3],
-											[.3,1.6,.3,1.9,.1,1,.1,1,.1,4.7,.3],[.3,3,.3]])
+									[.3,1.6,.3,1.9,.1,1,.1,1,.1,4.7,.3],[.3,3,.3]])
 
 
 # Generate hpc object:
