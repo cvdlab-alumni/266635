@@ -1,5 +1,8 @@
 """ Andrea D'Angelo, 266635, exercise 1 """
+
 import os,sys
+# N.B. : PER UNA CORRETTA VISUALIZZAZIONE, SOSTITUIRE IL PATH CORRENTE 
+#        CON QUELLO DOVE E' SITUATA LA LIBRERIA lar-cc .
 sys.path.insert(0, '/Library/Python/2.7/site-packages/lar-cc/lib/py/')
 from sysml import *
 from pyplasm import *
