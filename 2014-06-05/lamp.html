@@ -253,7 +253,7 @@
 
         joint_3.rotation.z = - Math.PI/2;
         
-        // Light settings: MAYBE TO ADD IN CONTROLS?!
+        // Light settings:
         joint_3.light.intensity = 1; // intensity of light.
         //joint_3.light.castShadow = true;
         joint_3.light.material.shininess = 200; // shininess of light.
@@ -332,7 +332,7 @@
         
         $('body').append(renderer.domElement);
 
-        // Try some animation:
+        // Make some animation:
 
         // Text animation:
         var textTweenBack = new TWEEN.Tween(text.position)
@@ -384,7 +384,7 @@
         var lamp_position = gui.addFolder("Lamp Position :"); // position folder.
         var lamp_animation = gui.addFolder("Lamp Animation :"); // animation folder.
         var object_utils = gui.addFolder("Objects Utils :"); // objects folder.
-        var utils = gui.addFolder("Utils :"); // position folder.
+        var utils = gui.addFolder("Utils :"); // utils folder.
 
         // Add controls to gui:
         
