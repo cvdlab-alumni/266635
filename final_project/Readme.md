@@ -10,7 +10,7 @@ Code organization
 * [shapes.js] (assets/scripts/shapes.js): contains functions for internal and external walls shapes.
 * [living.js] (assets/scripts/living.js): contains functions for generate internal object for living room.
 * [bath_room.js] (assets/scripts/bath_room.js): contains functions for generate internal object for bathroom.
-* [apartment.js] (assets/scripts/apartment.js): import model .obj for apartment and set up all base components, like floors, entrnce, balcony, door mat etc. .
+* [apartment.js] (assets/scripts/apartment.js): import model .obj for apartment and set up all base components, like floors, entrance, balcony, door mat etc. .
 * [kitchen.js] (assets/scripts/kitchen.js): contains functions to create kitchen's internal objects.
 * [room_1.js] (assets/scripts/room_1.js): contains functions for generate room_1 objects.
 * [room_2.js] (assets/scripts/room_2.js): see room_1 XD.
@@ -33,7 +33,7 @@ Utilities:
 Features and Graphic Techniques:
 ==================
 * Textures
-* Bump map and normal map
+* Bump map
 * .obj and .obj/.mtl model files import
 * Tween animations
 * TrackBallControl
@@ -57,3 +57,13 @@ Animations:
 * Lights: on/off by clicking (also by swithes)
 * General lights: on/off by Controls GUI
 * Home tour: by clicking on take_a_tour control in Controls GUI.
+
+Some Pics:
+==================
+
+Following some images:
+
+* [image_1] (pics/pic_1.png)
+* [image_2] (pics/pic_2.png)
+* [image_3] (pics/pic_3.png)
+* [image_4] (pics/pic_4.png)
