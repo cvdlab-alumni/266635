@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Final Project - Apartment</title> 
+  <style>
+    body{
+        margin: 0;
+        overflow: hidden;
+      }
+
+      #stats {  /* Align stats top-left */
+        position: absolute;
+        left: 0px;
+        top: 0px;      
+      }
+      #pointer {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        margin-top: -20px;
+        margin-left: -20px;
+        width: 40px;
+        height: 40px;
+        display: none;
+        background-image: url("assets/textures/general/pointer.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+      #instructions {
+      text-shadow:0px 0px 20px rgba(0,191,255,1);
+      font-weight:bold;
+      font-size:30px;
+      font-family:arial, helvetica, sans-serif;
+      text-align:center;
+      position: fixed;
+      top: 5%;
+      left: 80%;
+      margin-top: -15px;
+      margin-left: -250px;
+      width: 200px;
+      height: 30px;
+      display: none;
+    }
+
+    #plerror {
+      text-shadow:0px 0px 20px rgba(250,100,100,1);
+      font-weight:bold;
+      font-size:30px;
+      font-family:arial, helvetica, sans-serif;
+      text-align:center;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      margin-top: -15px;
+      margin-left: -100px;
+      width: 200px;
+      height: 30px;
+      display: none;
+    }
+  </style> 
+  </head>
+  <body>
+  <div id="stats"></div>
+  <div id="pointer"></div>
+  <div id="instructions">'ESC' to exit,
+                          'H' to hide controls!</div>
+  <div id="plerror">Pointer Lock ERROR!</div>
+  <!-- JavaScript libraries -->
+  <script src="assets/libs/jquery.min.js"></script> 
+  <script src="assets/libs/three.min.js"></script>
+  <script src="assets/libs/Stats.min.js"></script>
+  <script src="assets/libs/dat.gui.min.js"></script>
+  <script src="assets/libs/tween.min.js"></script>
+  <script src="assets/libs/mirror.js"></script>
+  <script src="assets/libs/TrackballControls.js"></script>
+  <script src="assets/libs/OBJLoader.js"></script>
+  <script src="assets/libs/MTLLoader.js"></script> 
+  <script src="assets/libs/OBJMTLLoader.js"></script>
+  <script src="assets/libs/PointerLockControls.js"></script>
+  <!--          Mine Scripts:           -->
+  <!--          Utilities               -->
+  <script src="assets/scripts/utilities/initialize.js"></script>
+  <script src="assets/scripts/utilities/render.js"></script>
+  <script src="assets/scripts/utilities/interactions.js"></script>
+  <script src="assets/scripts/utilities/script_utils.js"></script>
+  <script src="assets/scripts/utilities/script_doors.js"></script>
+  <script src="assets/scripts/utilities/script_windows.js"></script>
+  <script src="assets/scripts/utilities/script_floors.js"></script>
+  <script src="assets/scripts/utilities/script_objects.js"></script>
+  <script src="assets/scripts/utilities/script_video.js"></script>
+  <script src="assets/scripts/utilities/person_controls.js"></script>
+  <!--         Apartment scripts        -->
+  <script src="assets/scripts/apartment.js"></script>
+  <script src="assets/scripts/shapes.js"></script>
+  <script src="assets/scripts/doors.js"></script>
+  <script src="assets/scripts/windows.js"></script>
+  <script src="assets/scripts/kitchen.js"></script>
+  <script src="assets/scripts/room_1.js"></script>
+  <script src="assets/scripts/room_2.js"></script>
+  <script src="assets/scripts/living.js"></script>
+  <script src="assets/scripts/bath_room.js"></script>
+  <script>
+    // Let's Go!
+    $(function () {
+
+      // Statistics:
+      stats = initStats();
+
+      // Initializer:
+      init();
+
+      // Gesture animations:
+      document.addEventListener('mousedown', onDocumentMouseDown, false);
+
+      /* --- Utils: --- */
+
+      // Define axis helper: 
+      var axisHelper = new THREE.AxisHelper(10); // make axis helper.
+      //scene.add(axisHelper); // add it to scene.
+
+      /* --- Apartment: --- */
+
+      mkApartment();
+
+      // --- Doors:
+
+      mkDoors();
+
+      // --- Windows:
+
+      mkWindows();
+
+      // --- Shapes:
+
+      mkExternalShape();
+
+      mkLivingShape();
+
+      mkRoom1Shape();
+
+      mkRoom2Shape();
+
+      mkKitchenShape();
+
+      mkBathShape();
+
+      /* --- Internal Objects --- */
+
+      // --- Kitchen:
+
+      generateKitchenOBJ();
+
+      // --- Room 1:
+
+      generateRoom1OBJ();
+
+      // --- Room 2:
+
+      generateRoom2OBJ();
+
+      // --- Living Room:
+      
+      generateLivingOBJ();
+
+      // Video Monitor:
+
+      // Add video:
+
+      movie_monitor = mkVideoMonitor();
+
+      // interation:
+      movie_monitor.interact = interact_movie;
+
+      scene.add(movie_monitor);
+
+      // Video Tv:
+
+      // Add video:
+
+      movie = mkVideo();
+
+      // interation:
+      movie.interact = interact_movie;
+
+      scene.add(movie);
+
+      // --- Bath Room:
+      
+      generateBathOBJ();
+
+      // Objects to interact:
+      toInteract = [entry_door.door,room_1_door.door,room_2_door.door,closet_door.door,
+                    bathe_door.door,kitchen_door.door,closet_door.door,bathe_door.door,lsw_room_1.wndw,
+                    rsw_room_1.wndw,lsw_room_2.wndw,rsw_room_2.wndw,lsw_lounge_room.wndw,
+                    rsw_lounge_room.wndw,bathe_window.wndw,lsw_kitchen.wndw,rsw_kitchen.wndw,
+                    shower_door,movie,movie_monitor,lamp_kitchen_shade,lamp_bath_shade,
+                    lamp_desk_shade,lamp_floor_shade,lamp_night_shade_1,lamp_night_shade_2,
+                    lamp_night_shade_3,lamp_night_shade_4,robot,lamp_floor_switch,
+                    lamp_kitchen_switch,lamp_bath_switch,din_don,picture_1,picture_2,picture_3];
+
+
+      // add the output of the renderer to the html element
+      $('body').append(webGLRenderer.domElement);
+      
+      // setup the control gui
+      var controlGUI = new function () {
+
+        this.showAxisHelper = false;
+        this.take_a_tour = take_a_tour;
+        this.showMirror = false;
+        this.lights = true;
+        this.audio = true;
+
+      };
+
+      var gui = new dat.GUI();
+
+      gui.add(controlGUI, "take_a_tour");
+      var axis_control = gui.add(controlGUI, 'showAxisHelper'); // show axis helper.
+      
+      // Control for axies:
+      axis_control.onChange(function (value) {
+          
+        axisHelper.visible = value;
+        scene.add(axisHelper);
+      });
+      
+      gui.add(controlGUI, "showMirror").onChange( function (e) {
+            mirror_mesh.visible = e;
+            mirror.visible = e;
+      });
+
+      gui.add(controlGUI, "lights").onChange( function (e) {
+            
+            if(!e){
+              spotLight1.intensity = 0;
+              spotLight2.intensity = 0;
+            }
+            else{
+              spotLight1.intensity = 1;
+              spotLight2.intensity = 1;
+            }
+      });
+      
+      gui.add(controlGUI, "audio").onChange( function (e) {
+            
+            if(e){
+              soundtrack.play();
+            }
+            else{
+              soundtrack.pause();
+            }
+      });
+
+      // Render Loop:
+      render();
+
+      // Stats:
+
+      function initStats() {
+        var stats = new Stats();
+        stats.setMode(0); // 0: fps, 1: ms
+        $('body').append(stats.domElement);
+        return stats;
+      }
+    });
+  </script>  
+ </body>
+</html>

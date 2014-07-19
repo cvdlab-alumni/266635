@@ -1,0 +1,37 @@
+# File produced by Open Asset Import Library (http://www.assimp.sf.net)
+# (assimp v3.0.1270)
+
+newmtl Material #1
+kd 0.94902 0.94902 0.94902
+ka 0.94902 0.94902 0.94902
+ks 0.94902 0.94902 0.94902
+d 1
+Ns 71
+illum 2
+
+newmtl Material #2
+kd 0.2 0.552941 0.176471
+ka 0.0627451 0.180392 0.054902
+ks 0.898039 0.898039 0.898039
+d 1
+Ns 25
+illum 2
+#map_kd balcony.JPG
+
+newmtl Material #3
+kd 0.909804 0.909804 0.909804
+ka 0.909804 0.909804 0.909804
+ks 0.898039 0.898039 0.898039
+d 1
+Ns 54
+illum 2
+
+newmtl Material #10
+kd 0.388235 0.529412 0.192157
+ka 0.12549 0.172549 0.0627451
+ks 0.898039 0.898039 0.898039
+d 1
+Ns 25
+illum 2
+#map_kd balcony.JPG
+

@@ -1,0 +1,19 @@
+# File produced by Open Asset Import Library (http://www.assimp.sf.net)
+# (assimp v3.0.1270)
+
+newmtl w Lucida 
+kd 0.737255 0.678431 0.501961
+ka 0 0 0
+ks 0.156863 0.156863 0.156863
+d 1
+Ns 100
+illum 2
+
+newmtl Leather besh
+kd 0.996078 0.956863 0.854902
+ka 0 0 0
+ks 0.0784314 0.0784314 0.0784314
+d 1
+Ns 60
+illum 2
+

@@ -1,0 +1,19 @@
+# File produced by Open Asset Import Library (http://www.assimp.sf.net)
+# (assimp v3.0.1270)
+
+newmtl brass-N-01-yello
+kd 0.992157 1 0.301961
+ka 0.0980392 0.0980392 0.0980392
+ks 0.898039 0.898039 0.898039
+d 1
+Ns 80
+illum 2
+
+newmtl Frosted Clear Gl
+kd 0.764706 0.764706 0.764706
+ka 0 0 0
+ks 1 1 1
+d 0.6
+Ns 35
+illum 2
+
